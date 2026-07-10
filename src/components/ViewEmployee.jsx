@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavigationBar from './NavigationBar'
 
 const ViewEmployee = () => {
+
+  const [data,changeData] = useState(
+    [
+      {"sno":1,"name":"Mark Thomas","code":1001,"number":+919074526171,"designation":"HR"},
+      {"sno":2,"name":"Jacob Martin","code":1002,"number":+918606471362,"designation":"Data Analyst"},
+      {"sno":3,"name":"John Doe","code":1003,"number":+918921446131,"designation":"CEO"},
+      {"sno":4,"name":"Rani Kapoor","code":1004,"number":+918421416930,"designation":"Software Tester"},
+      {"sno":5,"name":"Riya Thomas","code":1005,"number":+917926146132,"designation":"Business Analyst"},
+      {"sno":6,"name":"Ruben Joseph","code":1006,"number":+919945351217,"designation":"Software Tester"},
+      {"sno":7,"name":"Arjun Reddy","code":1007,"number":+917921446131,"designation":"Developer"},
+      {"sno":8,"name":"John Doe","code":1008,"number":+919921845230,"designation":"Data Analyst"},
+      {"sno":9,"name":"Abel Philip","code":1009,"number":+919921891152,"designation":"Manager"},
+      {"sno":10,"name":"Mathew Kurian","code":1010,"number":+917211446126,"designation":"Business Analyst"}
+    ]
+  )
   return (
     <div>
 <NavigationBar />
@@ -9,7 +24,7 @@ const ViewEmployee = () => {
     <div className="row">
         <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
             
-                    <table className="table">
+        <table className="table">
   <thead>
     <tr>
       <th scope="col">SI.NO</th>
@@ -20,76 +35,20 @@ const ViewEmployee = () => {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark Thomas</td>
-      <td>1001</td>
-      <td>+91 9074526171</td>
-      <td>HR</td>
+    {data.map(
+      (value,index) => {
+        return(
+          <tr>
+      <th scope="row">{value.sno}</th>
+      <td>{value.name}</td>
+      <td>{value.code}</td>
+      <td>{value.number}</td>
+      <td>{value.designation}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob Martin</td>
-      <td>1002</td>
-      <td>+91 8606471362</td>
-      <td>Data Analyst</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John Doe</td>
-      <td>1003</td>
-      <td>+91 8921446131</td>
-      <td>CEO</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Rani Kapoor</td>
-      <td>1004</td>
-      <td>+91 8421416930</td>
-      <td>Software Tester</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Riya Thomas</td>
-      <td>1005</td>
-      <td>+91 7926146132</td>
-      <td>Business Analyst</td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>Ruben Joseph</td>
-      <td>1006</td>
-      <td>+91 9945351217</td>
-      <td>Software Tester</td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>Arjun Reddy</td>
-      <td>1007</td>
-      <td>+91 7921446131</td>
-      <td>Developer</td>
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td>John Doe</td>
-      <td>1008</td>
-      <td>+91 9921845230</td>
-      <td>Data Analyst</td>
-    </tr>
-    <tr>
-      <th scope="row">9</th>
-      <td>Abel Philip</td>
-      <td>1009</td>
-      <td>+91 9921891152</td>
-      <td>Manager</td>
-    </tr>
-    <tr>
-      <th scope="row">10</th>
-      <td>Mathew Kurian</td>
-      <td>1010</td>
-      <td>+91 7211446126</td>
-      <td>Business Analyst</td>
-    </tr>
+        )
+      }
+    )}
+
   </tbody>
 </table>
                
